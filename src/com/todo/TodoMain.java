@@ -14,8 +14,12 @@ public class TodoMain {
 		TodoList l = new TodoList();
 		boolean isList = false;
 		boolean quit = false;
+		
+		TodoUtil.loadList(l, "todolist.txt"); 
+		System.out.println("-모든 정보를 읽어왔습니다- "); 
+		Menu.displaymenu();
 		do {
-			Menu.displaymenu(); //prompt() 메소드로 수정 필요 
+			Menu.prompt(); 
 			isList = false; //true면 루프 종료 - 루프안에 true인 경우 존재
 			String choice = sc.next();
 			switch (choice) {
@@ -58,15 +62,21 @@ public class TodoMain {
 			//case help- 메뉴창 도움말 경우 추가 	
 				
 			case "exit":
+				System.out.println("모든 내용이 저장되었습니다. "); 
 				quit = true;
 				break;
+				
+			case "help":
+				Menu.displaymenu();
+				break; 
 
 			default:
-				System.out.println("please enter one of the above mentioned command");
+				System.out.println("입력하신 명령어가 존재하지 않습니다. help 를 통해 명령어 리스트 확인하기 ");
 				break;
 			}
 			
 			if(isList) l.listAll(); //리스트를 보여주기 위해 출력 
 		} while (!quit);
+		//TodoUtil.savelist(l,"todolist.txt"); 
 	}
 }
