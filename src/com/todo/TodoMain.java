@@ -77,6 +77,7 @@ public class TodoMain {
 			
 			if(isList) l.listAll(); //리스트를 보여주기 위해 출력 
 		} while (!quit);
-		//TodoUtil.savelist(l,"todolist.txt"); 
+		
+		TodoUtil.saveList(l,"todolist.txt"); 
 	}
 }
