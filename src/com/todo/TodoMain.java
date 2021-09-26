@@ -59,7 +59,14 @@ public class TodoMain {
 				isList = true;
 				break;
 				
-			//case help- 메뉴창 도움말 경우 추가 	
+				
+			case "ls_date_desc" : 
+				l.sortByDate();
+				l.reverseList();
+				System.out.println("-날짜역순으로 정렬-"); 
+				isList = true;
+				break; 
+			
 				
 			case "exit":
 				System.out.println("모든 내용이 저장되었습니다. "); 
@@ -69,6 +76,21 @@ public class TodoMain {
 			case "help":
 				Menu.displaymenu();
 				break; 
+				
+			case "find": 
+				TodoUtil.findfunc(l,sc); 
+				break; 
+				
+			case "find_cate":
+				TodoUtil.find_cate(l, sc);
+				break; 
+				
+			case "ls_cate":
+				System.out.println("-카테고리 목록-"); 
+				TodoUtil.sortByCate(l);
+				isList = true;
+				break; 
+				
 
 			default:
 				System.out.println("입력하신 명령어가 존재하지 않습니다. help 를 통해 명령어 리스트 확인하기 ");
